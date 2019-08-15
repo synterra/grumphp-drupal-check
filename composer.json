@@ -1,5 +1,5 @@
 {
-    "name": "esrohym/grumphp-drupal-check",
+    "name": "metadrop/grumphp-drupal-check",
     "description": "Execute drupal check in a grumphp task.",
     "type": "library",
     "require": {
