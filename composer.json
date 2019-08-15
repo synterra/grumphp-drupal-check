@@ -15,5 +15,8 @@
             "name": "Omar Mohamad - El Hassan Lopesino",
             "email": "omarmoper@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {"GrumphpDrupalCheck\\": "src/"}
+    }
 }
