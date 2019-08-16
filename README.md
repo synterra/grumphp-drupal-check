@@ -1,6 +1,6 @@
 # Description
 
-This repository adds a task for GrumPHP that launchs drupal-check.
+This repository adds a task for GrumPHP that launchs [drupal-check](https://github.com/mglaman/drupal-check).
 During a commit check Drupal code for deprecations and discover bugs via static analysis. If a deprecated code is detected, it won't pass.
 
 
