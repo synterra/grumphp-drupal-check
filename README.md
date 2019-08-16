@@ -1,7 +1,7 @@
 # Description
 
 This repository adds a task for GrumPHP that launchs drupal-check.
-During a commit if drupal-check finds code that will be deprecated in drupal 9 GrumPHP won't let the commit happen.
+During a commit check Drupal code for deprecations and discover bugs via static analysis. If a deprecated code is detected, it won't pass.
 
 
 # Installation
