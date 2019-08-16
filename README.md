@@ -7,6 +7,7 @@ During a commit if drupal-check finds code that will be deprecated in drupal 9 G
 # Installation
 
 Install it using composer:
+
 ```composer require metadrop/grumphp-drupal-check```
 
 
