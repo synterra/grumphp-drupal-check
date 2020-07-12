@@ -16,19 +16,11 @@ class DrupalCheck extends AbstractExternalTask
 {
 
   /**
-   * {@inheritdoc}
-   */
-  public function getName(): string
-  {
-      return 'drupalcheck';
-  }
-
-  /**
    * @param ContextInterface $context
    *
    * @return bool
    */
-  public function canRunInContext(ContextInterface $context)
+  public function canRunInContext(ContextInterface $context): bool
   {
       return ($context instanceof GitPreCommitContext);
   }
@@ -36,7 +28,7 @@ class DrupalCheck extends AbstractExternalTask
   /**
    * {@inheritdoc}
    */
-  public function getConfigurableOptions(): OptionsResolver
+  public static function getConfigurableOptions(): OptionsResolver
   {
       $resolver = new OptionsResolver();
       return $resolver;

@@ -23,10 +23,9 @@ class ExtensionLoader implements ExtensionInterface
     public function load(ContainerBuilder $container)
     {
         return $container->register('task.drupalcheck', DrupalCheck::class)
-            ->addArgument(new Reference('config'))
             ->addArgument(new Reference('process_builder'))
             ->addArgument(new Reference('formatter.raw_process'))
-            ->addTag('grumphp.task', ['config' => 'drupalcheck']);
+            ->addTag('grumphp.task', ['task' => 'drupalcheck']);
     }
 
 }
