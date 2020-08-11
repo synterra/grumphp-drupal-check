@@ -8,7 +8,7 @@ During a commit check Drupal code for deprecations and discover bugs via static 
 
 Install it using composer:
 
-```composer require metadrop/grumphp-drupal-check```
+```composer require --dev metadrop/grumphp-drupal-check```
 
 
 # Usage
