@@ -43,7 +43,6 @@ class DrupalCheck extends AbstractExternalTask
       $resolver->setDefaults([
         'drupal_root' => null,
       ]);
-
       $resolver->addAllowedTypes('drupal_root', ['string']);
 
       return $resolver;
