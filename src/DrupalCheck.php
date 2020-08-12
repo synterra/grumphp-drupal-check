@@ -39,14 +39,14 @@ class DrupalCheck extends AbstractExternalTask
    */
   public static function getConfigurableOptions(): OptionsResolver
   {
-    $resolver = new OptionsResolver();
-    $resolver->setDefaults([
-      'drupal_root' => null,
-    ]);
+      $resolver = new OptionsResolver();
+      $resolver->setDefaults([
+        'drupal_root' => null,
+      ]);
 
-    $resolver->addAllowedTypes('drupal_root', ['string']);
+      $resolver->addAllowedTypes('drupal_root', ['string']);
 
-    return $resolver;
+      return $resolver;
   }
 
   /**
