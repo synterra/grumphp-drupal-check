@@ -17,14 +17,6 @@ class DrupalCheck extends AbstractExternalTask
 {
 
   /**
-   * {@inheritdoc}
-   */
-  public function getName(): string
-  {
-    return 'drupalcheck';
-  }
-
-  /**
    * @param ContextInterface $context
    *
    * @return bool
