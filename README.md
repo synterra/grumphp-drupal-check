@@ -22,6 +22,7 @@ extensions:
 2) Add drupal check to the tasks:
 ```
 tasks:
-  drupalcheck: ~
+  drupalcheck:
+    drupal_root: ~
 ```
-
+Optionally, configure the path to the Drupal root. This fallback option can be used if drupal-check could not identify Drupal root from the provided path(s). This is useful when testing a module as opposed to a Drupal installation.
