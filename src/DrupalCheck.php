@@ -4,10 +4,11 @@ namespace GrumphpDrupalCheck;
 
 use GrumPHP\Runner\TaskResult;
 use GrumPHP\Runner\TaskResultInterface;
+use GrumPHP\Task\AbstractExternalTask;
 use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
+use GrumPHP\Task\Context\RunContext;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use GrumPHP\Task\AbstractExternalTask;
 
 /**
  * Drupal check task.
@@ -22,7 +23,7 @@ class DrupalCheck extends AbstractExternalTask
    */
   public function canRunInContext(ContextInterface $context): bool
   {
-      return ($context instanceof GitPreCommitContext);
+      return $context instanceof GitPreCommitContext || $context instanceof RunContext;
   }
 
   /**
@@ -31,6 +32,11 @@ class DrupalCheck extends AbstractExternalTask
   public static function getConfigurableOptions(): OptionsResolver
   {
       $resolver = new OptionsResolver();
+      $resolver->setDefaults([
+        'drupal_root' => null,
+      ]);
+      $resolver->addAllowedTypes('drupal_root', ['string', 'null']);
+
       return $resolver;
   }
 
@@ -39,6 +45,9 @@ class DrupalCheck extends AbstractExternalTask
    */
   public function run(ContextInterface $context): TaskResultInterface
   {
+    $config = $this->getConfig();
+    $options = $config->getOptions();
+
     /** @var \GrumPHP\Collection\FilesCollection $files */
     $files = $context->getFiles();
     $triggered_by = [
@@ -56,6 +65,7 @@ class DrupalCheck extends AbstractExternalTask
     $arguments = $this->processBuilder->createArgumentsForCommand('drupal-check');
     $arguments->add('--deprecations');
     $arguments->add('--no-progress');
+    $arguments->addOptionalArgument('--drupal-root=%s', $options['drupal_root']);
     $arguments->addFiles($files);
     $process = $this->processBuilder->buildProcess($arguments);
     $process->run();
