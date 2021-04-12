@@ -20,9 +20,9 @@ class ExtensionLoader implements ExtensionInterface
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException
      * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
      */
-    public function load(ContainerBuilder $container)
+    public function load(ContainerBuilder $container) : void
     {
-        return $container->register('task.drupalcheck', DrupalCheck::class)
+        $container->register('task.drupalcheck', DrupalCheck::class)
             ->addArgument(new Reference('process_builder'))
             ->addArgument(new Reference('formatter.raw_process'))
             ->addTag('grumphp.task', ['task' => 'drupalcheck']);
