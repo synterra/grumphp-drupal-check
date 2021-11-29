@@ -24,5 +24,8 @@ extensions:
 tasks:
   drupalcheck:
     drupal_root: ~
+    memory_limit: ~
 ```
 Optionally, configure the path to the Drupal root. This fallback option can be used if drupal-check could not identify Drupal root from the provided path(s). This is useful when testing a module as opposed to a Drupal installation.
+
+Optionally, configure memory limit for the process.
