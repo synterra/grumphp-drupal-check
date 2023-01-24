@@ -33,9 +33,16 @@ class DrupalCheck extends AbstractExternalTask
   {
       $resolver = new OptionsResolver();
       $resolver->setDefaults([
-        'drupal_root' => null,
+        'drupal_root' => NULL,
+        'deprecations' => NULL,
+        'analysis' => NULL,
+        'php8' => NULL,
       ]);
       $resolver->addAllowedTypes('drupal_root', ['string', 'null']);
+      $resolver->addAllowedTypes('deprecations', ['boolean', 'null']);
+      $resolver->addAllowedTypes('analysis', ['boolean', 'null']);
+      $resolver->addAllowedTypes('php8', ['boolean', 'null']);
+
 
       return $resolver;
   }
@@ -63,7 +70,9 @@ class DrupalCheck extends AbstractExternalTask
         return TaskResult::createSkipped($this, $context);
     }
     $arguments = $this->processBuilder->createArgumentsForCommand('drupal-check');
-    $arguments->add('--deprecations');
+    !$options['analysis']?: $arguments->add('--analysis');
+    !$options['deprecations']?: $arguments->add('--deprecations');
+    !$options['php8']?: $arguments->add('--php8');
     $arguments->add('--no-progress');
     $arguments->addOptionalArgument('--drupal-root=%s', $options['drupal_root']);
     $arguments->addFiles($files);
