@@ -39,7 +39,7 @@ class DrupalCheck extends AbstractExternalTask
         'php8' => NULL,
       ]);
       $resolver->addAllowedTypes('drupal_root', ['string', 'null']);
-      $resolver->addAllowedTypes('deprecations', ['boolean', 'null']);
+      $resolver->addAllowedTypes('deprecations', ['boolean', true]);
       $resolver->addAllowedTypes('analysis', ['boolean', 'null']);
       $resolver->addAllowedTypes('php8', ['boolean', 'null']);
 
