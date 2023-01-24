@@ -70,9 +70,9 @@ class DrupalCheck extends AbstractExternalTask
         return TaskResult::createSkipped($this, $context);
     }
     $arguments = $this->processBuilder->createArgumentsForCommand('drupal-check');
-    !$options['analysis']?: $arguments->add('--analysis');
-    !$options['deprecations']?: $arguments->add('--deprecations');
-    !$options['php8']?: $arguments->add('--php8');
+    !$options['analysis'] ?: $arguments->add('--analysis');
+    !$options['deprecations'] ?: $arguments->add('--deprecations');
+    !$options['php8'] ?: $arguments->add('--php8');
     $arguments->add('--no-progress');
     $arguments->addOptionalArgument('--drupal-root=%s', $options['drupal_root']);
     $arguments->addFiles($files);
