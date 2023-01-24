@@ -25,7 +25,14 @@ tasks:
   drupalcheck:
     drupal_root: ~
     memory_limit: ~
+    deprecations: true
+    analysis: true
+    php8: true
 ```
-Optionally, configure the path to the Drupal root. This fallback option can be used if drupal-check could not identify Drupal root from the provided path(s). This is useful when testing a module as opposed to a Drupal installation.
+Optionally, you can define multiple DrupalCheck arguments:
 
-Optionally, configure memory limit for the process.
+- **drupal_root** (string): Configure the path to the Drupal root. This fallback option can be used if drupal-check could not identify Drupal root from the provided path(s). This is useful when testing a module as opposed to a Drupal installation.
+- **memory_limit** (string): Configure memory limit for the process.
+- **deprecations** (boolean): Check code for deprecations. By default it is true.
+- **analysis** (boolean): Check code analysis.
+- **php8** (boolean): Set PHPStan phpVersion for 8.1 (Drupal 10 requirement).
