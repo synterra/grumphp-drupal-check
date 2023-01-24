@@ -33,10 +33,10 @@ class DrupalCheck extends AbstractExternalTask
   {
       $resolver = new OptionsResolver();
       $resolver->setDefaults([
-        'drupal_root' => NULL,
-        'deprecations' => NULL,
-        'analysis' => NULL,
-        'php8' => NULL,
+        'drupal_root' => '',
+        'deprecations' => true,
+        'analysis' => false,
+        'php8' => false,
       ]);
       $resolver->addAllowedTypes('drupal_root', ['string', 'null']);
       $resolver->addAllowedTypes('deprecations', ['boolean', true]);
